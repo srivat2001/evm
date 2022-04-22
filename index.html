@@ -422,39 +422,10 @@ text-align: left;
                </div>
             </div>
          </div>
-         <div class="news">
-		 <div class="newsnotification">3 Congress MLA Jumped to BJP</div>
-			 </div>
+     
       </div>
       <script>
-		     var arr3= ["300", "420","88","74","20","41","512"];
-		   var arr4= ["BJP", "Congress","AAP","SP","TMC","DMK","JDU"];
-		  var news = window.setInterval(function(){
-let noofmla=Math.floor(Math.random() * 8) + 1;
-if(noofmla<5){
-	let send=arr4[Math.floor(Math.random() * 7)];
-	var index = arr4.indexOf(send);
-    if (index !== -1) {
-       arr4.splice(index, 1);
-     }
-	let receive=arr4[Math.floor(Math.random() * 6)];
-    arr4.push(send);
-	$(".newsnotification").html(noofmla.toString()+" "+send+" MLA Jumped to "+receive);
-
-}else{
-    	var index = arr4.indexOf("BJP");
-    if (index !== -1) {
-       arr4.splice(index, 1);
-     }
-	let receive=arr4[Math.floor(Math.random() * 6)];
-	arr4.push("BJP");
-	$(".newsnotification").html(noofmla.toString()+" "+receive+" MLA Jumped to BJP");
-}
-			  
-$(".newsnotification").fadeIn(1000);
-$(".newsnotification").delay(4000).fadeOut(1000);
-}, 7000);
-
+		   
 
 
 		class evm {
@@ -464,7 +435,7 @@ $(".newsnotification").delay(4000).fadeOut(1000);
                 }
             }
        var arr1 = ["bjp.png", "aap.png"];
-	   var arr2 = ["300", "420","88","74","20","41","512"];
+
        var partylist={"1. Bharatia Janta Party":"bjp","2. Congress":"congress","3. Aam Aadmi Party":"aap","4. CPIM":"cpim"}
 	   var partydom = document.getElementsByClassName("canditade_Party_list")[0];
 	   var btndom = document.getElementsByClassName("canditade_Party_Btn")[0];  
@@ -493,57 +464,18 @@ window.onload = function() {
             const div = document.createElement('div');
             const el = document.createElement('img');
             const att = document.createAttribute("src");
-          
-            if (png == "aap.png") {
-				let val1 = ["bjp.png", "aap.png"][Math.floor(Math.random() * 2)];
-                att.value = "img/"+val1;
-				document.getElementsByClassName("vvpatimg")[0].src = "img/"+val1;
-				            el.setAttributeNode(att);
+            att.value = "img/"+png;
+			document.getElementsByClassName("vvpatimg")[0].src = "img/"+png;
+            el.setAttributeNode(att);
             el.classList.add("yourvote");
             div.appendChild(el);
 			animate(el);	
-            } 
-			  else if (png == "bjp.png") {
-			     att.value = "img/bjp.png";
-				document.getElementsByClassName("vvpatimg")[0].src = "img/"+"bjp.png";
-			el.setAttributeNode(att);
-            el.classList.add("yourvote");
-            div.appendChild(el);
-			animate(el);
-            }else {
-               	let val2 = ["shah.png", png][Math.floor(Math.random() * 2)];
-          
-                att.value = "img/"+val2;
-				if(val2=="shah.png"){
-					div.classList.add("yourvote");
-					let val3 = arr2[Math.floor(Math.random() * 7)]; 
-					document.getElementsByClassName("vvpatimg")[0].src = "img/"+"shah.png";
-					div.innerHTML="MLA Bought By "+val3+" Crore";
-					div.style.width="140px";
-		            div.style.left="33%";
-					animate(div);
-				}
-				else{
-					
-						document.getElementsByClassName("vvpatimg")[0].src = "img/"+val2;
-				            el.setAttributeNode(att);
-            el.classList.add("yourvote");
-            div.appendChild(el);
-			animate(el);		
-				}
-			
-            }
-
-
-
             document.getElementsByClassName("vote")[0].appendChild(div);
             var audio = new Audio('beep-02.wav');
             audio.play();
-
             var jh = setInterval(function() {
-                div.remove();
-           
-document.getElementsByClassName("btnlight "+png)[0].style.backgroundColor="black";
+            div.remove();
+            document.getElementsByClassName("btnlight "+png)[0].style.backgroundColor="black";
             }, 1200) 
 
         };
